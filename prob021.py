@@ -10,10 +10,21 @@ and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and
 Evaluate the sum of all the amicable numbers under 10000.
 """
 
-from prob012 import get_divisors
+from math import sqrt
+
+
+def get_divisors(n):
+  divisors = set()
+  i = 1
+  while i <= sqrt(n):
+    if n % i == 0:
+      divisors.add(i)
+      if i != n/i:
+        divisors.add(n/i)
+    i += 1
+  return divisors
 
 def d(n):
-  # This is still fairly slow.
   divs = get_divisors(n)
   divs.discard(n)
   return sum(divs)
