@@ -24,7 +24,7 @@ def get_divisors(n):
     i += 1
   return divisors
 
-def d(n):
+def sum_of_proper_divisors(n):
   divs = get_divisors(n)
   divs.discard(n)
   return sum(divs)
@@ -34,9 +34,9 @@ if __name__ == "__main__":
   amicable_nums = set()
   while nums:
     num = nums.pop()
-    x = d(num)
+    x = sum_of_proper_divisors(num)
     if x in nums:
-      if num == d(x):
+      if num == sum_of_proper_divisors(x):
         nums.remove(x)
         amicable_nums.add(num)
         amicable_nums.add(x)
